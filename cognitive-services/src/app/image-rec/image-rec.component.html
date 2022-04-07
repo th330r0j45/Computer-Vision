@@ -1,0 +1,22 @@
+<div class="container py-4 mt-5">
+    <div class="card mb-3">
+        <form #imageForm="ngForm" autocomplete="off" (ngSubmit)="analyzeImage(imageForm)">
+            <div class="form-group">
+                <label for="imageURL" class="form-control">Image URL</label>
+                <input type="text" name="imageURL" id="imageURL" imageURL="ngModel" (ngModel)="imageURLPreview" class="form-control " placeholder="Paste URL here..">
+            </div>
+            <div class="form-group ">
+                <input type="submit" value="Analize Image" class="btn btn-primary w-100 ">
+            </div>
+        </form>
+        <div class="card-body">
+            <div>
+                <img class="card-img-top" [src]="imageURLPreview" alt=" " width="200px" height="400px">
+            </div>
+            <h5 class="card-title">Image preview</h5>
+            <p class="card-text">
+                <ngx-json-viewer class="json" [json]="analyzedImageData" [depth]="3"></ngx-json-viewer>
+            </p>
+        </div>
+    </div>
+</div>
